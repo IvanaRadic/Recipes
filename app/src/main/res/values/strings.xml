@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">Recipes</string>
+
+    //signup
+    <string name="signup_email">Email</string>
+    <string name="signup_password">Password</string>
+    <string name="go_login">Have account? Log In</string>
+    <string name="signup">Sign Up</string>
+
+    //login
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="go_signup">Need account? Sign Up</string>
+    <string name="login">Log In</string>
+
+    //sign off
+    <string name="sign_off">Sign Off</string>
+
+    //recipes
+    <string name="go_insert">Add recipe</string>
+
+    //add recipe
+    <string name="add_txt">Add recipes</string>
+    <string name="go_recipes">Search recipes</string>
+    <string name="et_name">Name</string>
+    <string name="et_description">Description</string>
+    <string name="num_servings">Servings</string>
+    <string name="save_recipe">Save</string>
+
+    //search recipes
+    <string name="et_search_recipes">Recipe name</string>
+    <string name="btn_search">Search recipes</string>
+    <string name="go_add_txt">Add recipes</string>
+    <string name="home">Home page</string>
+
+
+    //recipe list
+    <string name="txt_recipe_name">Recipe name </string>
+    <string name="txt_recipe_description">Description </string>
+    <string name="recipe_img">Recipe image </string>
+
+
 </resources>

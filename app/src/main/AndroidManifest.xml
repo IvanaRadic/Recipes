@@ -12,7 +12,22 @@
         android:theme="@style/Theme.Recipes"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".MainActivity"
+            android:name=".ViewRecipeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchRecipesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddRecipeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecipesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

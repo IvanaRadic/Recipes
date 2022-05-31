@@ -3,7 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_add_recipe.xml" value="0.25677083333333334" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_input_recipe.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_recipes.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_search_recipes.xml" value="0.41105527638190953" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_sign_up.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_view_recipe.xml" value="0.2671875" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/fragment_recipe_view.xml" value="0.26927083333333335" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/list_recipes.xml" value="0.2546875" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/recipe_list.xml" value="0.33" />
       </map>
     </option>
   </component>
