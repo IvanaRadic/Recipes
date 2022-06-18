@@ -18,6 +18,7 @@
 
     //recipes
     <string name="go_insert">Add recipe</string>
+    <string name="go_search">Search recipes</string>
 
     //add recipe
     <string name="add_txt">Add recipes</string>

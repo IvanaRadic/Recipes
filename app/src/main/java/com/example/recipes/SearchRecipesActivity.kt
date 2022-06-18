@@ -4,22 +4,25 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipes.databinding.ActivitySearchRecipesBinding
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
 import java.text.FieldPosition
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SearchRecipesActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchRecipesBinding
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var recipeArrayList: ArrayList<Recipe>
+    private lateinit var tempArrayList: ArrayList<Recipe>
     private lateinit var myAdapter: MyAdapter
     private lateinit var db: FirebaseFirestore
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +37,9 @@ class SearchRecipesActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         recipeArrayList = arrayListOf<Recipe>()
-        myAdapter = MyAdapter(recipeArrayList)
+        tempArrayList = arrayListOf<Recipe>()
+        //tuh
+        myAdapter = MyAdapter(tempArrayList)
         recyclerView.adapter = myAdapter
 
         eventChangeListener()
@@ -44,16 +49,51 @@ class SearchRecipesActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btnSearchRecipe.setOnClickListener {
-            searchRecipe()
-        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.menu_item,menu)
+        val item = menu?.findItem(R.id.search_action)
+        val searchView = item?.actionView as SearchView
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(newText: String?): Boolean {
+
+                    recyclerView.adapter!!.notifyDataSetChanged()
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                tempArrayList.clear()
+
+                val searchText = newText!!.lowercase(Locale.getDefault())
+                if(searchText.isNotEmpty()){
+                    recipeArrayList.forEach{
+                        if(it.Name!!.lowercase(Locale.getDefault()).contains(searchText)){
+
+                            tempArrayList.add(it)
+
+                        }
+                    }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }
+                else{
+                    tempArrayList.clear()
+                    tempArrayList.addAll(recipeArrayList)
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }
+
+                return false
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
     }
 
 
-
-    private fun searchRecipe() {
-        TODO("Not yet implemented")
-    }
 
     private fun eventChangeListener(){
 
@@ -73,6 +113,7 @@ class SearchRecipesActivity : AppCompatActivity() {
                         recipeArrayList.add(dc.document.toObject(Recipe::class.java))
                     }
                 }
+                tempArrayList.addAll(recipeArrayList)
                 myAdapter.notifyDataSetChanged()
             }
         })
@@ -81,11 +122,14 @@ class SearchRecipesActivity : AppCompatActivity() {
             override fun onItemClick(position: Int) {
                 // Toast.makeText(this@SearchRecipesActivity, "you clicked on ${position + 1}", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@SearchRecipesActivity, ViewRecipeActivity::class.java)
-                intent.putExtra("Name", recipeArrayList[position].Name)
-                intent.putExtra("Description", recipeArrayList[position].Description)
+                //tu 2 puta
+                intent.putExtra("Name", tempArrayList[position].Name)
+                intent.putExtra("Description", tempArrayList[position].Description)
                 startActivity(intent)
             }
         })
+
+
 
     }
 }

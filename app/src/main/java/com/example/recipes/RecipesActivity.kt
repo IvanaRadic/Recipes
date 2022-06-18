@@ -24,6 +24,10 @@ class RecipesActivity : AppCompatActivity() {
             val intent = Intent(this, AddRecipeActivity::class.java)
             startActivity(intent)
         }
+        binding.btnGoSearchRecipe.setOnClickListener {
+            val intent = Intent(this, SearchRecipesActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

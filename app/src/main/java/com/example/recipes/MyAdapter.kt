@@ -34,10 +34,11 @@ class MyAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
+
         val currentItem = recipeList[position]
         holder.recipeName.text = currentItem.Name
         holder.recipeDescription.text = currentItem.Description
-        //holder.recipePicture.setImageResource(images[position])
+        //holder.recipeImage.setImageResource(images[position])
 
     }
 
@@ -46,7 +47,7 @@ class MyAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapt
 
         val recipeName : TextView = itemView.findViewById(R.id.tv_recipe_name)
         val recipeDescription : TextView = itemView.findViewById(R.id.tv_recipe_description)
-        //val recipePicture : ImageView = itemView.findViewById(R.id.recipeImage)
+        val recipeImage : ImageView = itemView.findViewById(R.id.recipeImage)
 
 
         init{
