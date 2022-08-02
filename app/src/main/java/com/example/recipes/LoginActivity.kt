@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
-    private lateinit var progressDialog: ProgressDialog
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var email :String
     private lateinit var password :String
@@ -24,19 +23,12 @@ class LoginActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please wait")
-        progressDialog.setMessage("Signing up...")
-        progressDialog.setCanceledOnTouchOutside(false)
-
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-
-        binding.btnGoSignUp.setOnClickListener{
-            val intent = Intent(this, SignUpActivity::class.java)
+        binding.txtsignup.setOnClickListener {val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
-        }
+            overridePendingTransition(0, 0);}
 
         binding.btnLogIn.setOnClickListener{
            validateData()
@@ -61,10 +53,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaseLogIn() {
         //data validated begin login
-        progressDialog.show()
+
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                progressDialog.dismiss()
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this,"Logged in as $email", Toast.LENGTH_SHORT).show()
@@ -73,7 +64,6 @@ class LoginActivity : AppCompatActivity() {
 
             }
             .addOnFailureListener{ e->
-                progressDialog.dismiss()
                 Toast.makeText(this, "Login failed. ${e.message}", Toast.LENGTH_SHORT).show()
 
             }

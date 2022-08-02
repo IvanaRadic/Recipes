@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".RecipesActivity">
+    tools:context=".RecipesActivity"
+ >
 
 
     <TextView
@@ -16,23 +16,31 @@
         android:text="Welcome"
         android:layout_marginTop="60dp"/>
 
-    <Button
-        android:id="@+id/btnSignOff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/sign_off" />
 
-    <Button
-        android:id="@+id/btnGoAddRecipe"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnDel"
+        android:src="@drawable/ic_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_userRecipes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/go_insert" />
-    <Button
-        android:id="@+id/btnGoSearchRecipe"
+        android:layout_weight="1"/>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/go_search" />
+        app:menu="@menu/bottom_menu"
+        android:layout_weight="0"
+        android:layout_gravity="center|bottom"
+
+        />
+
+
 
 
 </LinearLayout>

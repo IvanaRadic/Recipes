@@ -1,20 +1,29 @@
-package com.example.recipes
+package com.example.recipes.adapter
 
-import android.content.Intent
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageSwitcher
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recipes.R
+import com.example.recipes.dataclass.Recipe
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
-class MyAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
+
 
     private lateinit var mListener: onItemClickListener
+
+
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
@@ -24,7 +33,8 @@ class MyAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapt
         mListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.MyViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recipe_list, parent,false)
         return MyViewHolder(itemView, mListener)
     }
@@ -33,20 +43,19 @@ class MyAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapt
         return recipeList.size
     }
 
-    override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = recipeList[position]
         holder.recipeName.text = currentItem.Name
-        holder.recipeDescription.text = currentItem.Description
         //holder.recipeImage.setImageResource(images[position])
 
     }
 
 
+
     class MyViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
 
         val recipeName : TextView = itemView.findViewById(R.id.tv_recipe_name)
-        val recipeDescription : TextView = itemView.findViewById(R.id.tv_recipe_description)
         val recipeImage : ImageView = itemView.findViewById(R.id.recipeImage)
 
 
@@ -57,6 +66,7 @@ class MyAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapt
             }
         }
     }
+
 
 
 

@@ -5,9 +5,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/whisk"
+        android:label="Cook Nook"
+        android:roundIcon="@drawable/whisk"
         android:supportsRtl="true"
         android:theme="@style/Theme.Recipes"
         tools:ignore="AllowBackup">
@@ -15,12 +15,16 @@
             android:name=".ViewRecipeActivity"
             android:exported="false" />
         <activity
+            android:label=""
+            android:theme="@style/ActionTheme.Recipes"
             android:name=".SearchRecipesActivity"
             android:exported="false" />
         <activity
             android:name=".AddRecipeActivity"
             android:exported="false" />
         <activity
+            android:label="Cook Nook"
+            android:theme="@style/ActionTheme.Recipes"
             android:name=".RecipesActivity"
             android:exported="false" />
         <activity
@@ -35,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

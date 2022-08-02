@@ -5,14 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipes.databinding.ActivitySearchRecipesBinding
+import com.example.recipes.dataclass.Recipe
+import com.example.recipes.adapter.RecipeAdapter
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
-import java.text.FieldPosition
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -21,7 +22,7 @@ class SearchRecipesActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recipeArrayList: ArrayList<Recipe>
     private lateinit var tempArrayList: ArrayList<Recipe>
-    private lateinit var myAdapter: MyAdapter
+    private lateinit var recipeAdapter: RecipeAdapter
     private lateinit var db: FirebaseFirestore
 
 
@@ -32,23 +33,42 @@ class SearchRecipesActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        recyclerView = findViewById(R.id.rv_recipes)
+        //recyclerView = findViewById(R.id.rv_recipes)
+        recyclerView = binding.rvRecipes
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
         recipeArrayList = arrayListOf<Recipe>()
         tempArrayList = arrayListOf<Recipe>()
-        //tuh
-        myAdapter = MyAdapter(tempArrayList)
-        recyclerView.adapter = myAdapter
+        recipeAdapter = RecipeAdapter(tempArrayList)
+        recyclerView.adapter = recipeAdapter
 
         eventChangeListener()
 
-        binding.btnHome.setOnClickListener {
-            val intent = Intent(this, RecipesActivity::class.java)
-            startActivity(intent)
+        binding.bottomNav.setOnItemSelectedListener { item: MenuItem ->
+            when (item.itemId) {
+                R.id.btn_home -> {
+                    val intent = Intent(this, RecipesActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0);
+                    true
+                }
+                R.id.btn_search -> {
+                    val intent = Intent(this, SearchRecipesActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0);
+                    true
+                }
+                R.id.btn_add -> {
+                    val intent = Intent(this, AddRecipeActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0);
+                    true
+                }
+                else ->
+                    true
+            }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -93,8 +113,6 @@ class SearchRecipesActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-
-
     private fun eventChangeListener(){
 
         db = FirebaseFirestore.getInstance()
@@ -103,10 +121,8 @@ class SearchRecipesActivity : AppCompatActivity() {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
 
                 if(error != null){
-
                     Log.e("Firestore Error", error.message.toString())
                     return
-
                 }
                 for(dc : DocumentChange in value?.documentChanges!!){
                     if(dc.type == DocumentChange.Type.ADDED){
@@ -114,22 +130,19 @@ class SearchRecipesActivity : AppCompatActivity() {
                     }
                 }
                 tempArrayList.addAll(recipeArrayList)
-                myAdapter.notifyDataSetChanged()
+                recipeAdapter.notifyDataSetChanged()
             }
         })
 
-        myAdapter.setOnItemClickListener(object : MyAdapter.onItemClickListener{
+        recipeAdapter.setOnItemClickListener(object : RecipeAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                // Toast.makeText(this@SearchRecipesActivity, "you clicked on ${position + 1}", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@SearchRecipesActivity, ViewRecipeActivity::class.java)
-                //tu 2 puta
                 intent.putExtra("Name", tempArrayList[position].Name)
-                intent.putExtra("Description", tempArrayList[position].Description)
+                intent.putExtra("Instruction", tempArrayList[position].Instruction)
+                intent.putExtra("Ingredients", tempArrayList[position].Ingredients)
+                intent.putExtra("User", tempArrayList[position].User)
                 startActivity(intent)
             }
         })
-
-
-
     }
 }

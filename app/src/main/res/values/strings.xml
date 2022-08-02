@@ -2,6 +2,7 @@
     <string name="app_name">Recipes</string>
 
     //signup
+    <string name="signup_username">Username</string>
     <string name="signup_email">Email</string>
     <string name="signup_password">Password</string>
     <string name="go_login">Have account? Log In</string>
@@ -11,7 +12,8 @@
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
     <string name="go_signup">Need account? Sign Up</string>
-    <string name="login">Log In</string>
+    <string name="logo">Cook Nook</string>
+    <string name="login">Log in</string>
 
     //sign off
     <string name="sign_off">Sign Off</string>
@@ -24,7 +26,7 @@
     <string name="add_txt">Add recipes</string>
     <string name="go_recipes">Search recipes</string>
     <string name="et_name">Name</string>
-    <string name="et_description">Description</string>
+    <string name="et_instructions">Instructions</string>
     <string name="num_servings">Servings</string>
     <string name="save_recipe">Save</string>
 
@@ -39,6 +41,16 @@
     <string name="txt_recipe_name">Recipe name </string>
     <string name="txt_recipe_description">Description </string>
     <string name="recipe_img">Recipe image </string>
+    
+    
+    //drop down units
+    <string-array name="units">
+        <item>g</item>
+        <item>Kg</item>
+        <item>ml</item>
+        <item>L</item>
+        <item>X</item>
+    </string-array>
 
 
 </resources>

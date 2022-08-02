@@ -13,6 +13,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var username :String
     private lateinit var email :String
     private lateinit var password :String
 
@@ -25,9 +26,10 @@ class SignUpActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.btnGoLogIn.setOnClickListener{
+        binding.txtlogin.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0, 0);
         }
 
         binding.btnSignUp.setOnClickListener{
@@ -37,6 +39,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun validateData(){
+        username = binding.txtSignUpUsername.text.toString().trim()
         email = binding.txtSignUpEmail.text.toString().trim()
         password = binding.txtSignUpPassword.text.toString().trim()
 
@@ -55,10 +58,11 @@ class SignUpActivity : AppCompatActivity() {
 
     }
     private fun firebaseSignUp() {
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
+        firebaseAuth.createUserWithEmailAndPassword (email, password)
             .addOnSuccessListener {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
+
                 Toast.makeText(this, "Account created with email $email", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, RecipesActivity::class.java))
                 finish()

@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical"
-    tools:context=".ViewRecipeActivity">
+    tools:context=".ViewRecipeActivity"
+>
 
 
     <TextView
         android:id="@+id/tvRecipeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Name" />
 
     <TextView
-        android:id="@+id/tvRecipeDescription"
+        android:id="@+id/tvRecipeInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Instruction" />
+    <TextView
+        android:id="@+id/tvRecipeIngredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingredients" />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listOfIngredients"/>
+
+
+    <ImageView
+        android:id="@+id/imgRecipe"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/whisk" />
+
+    <TextView
+        android:id="@+id/tvRecipeUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:layout_marginTop="30dp"/>
+
 </LinearLayout>
