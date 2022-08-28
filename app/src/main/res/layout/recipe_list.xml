@@ -31,7 +31,8 @@
             android:layout_height="match_parent"
             android:layout_alignTop="@+id/recipeImage"
             android:layout_alignBottom="@+id/recipeImage"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="20dp">
 
             <TextView
                 android:id="@+id/tv_recipe_name"
@@ -39,8 +40,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
                 android:text="@string/txt_recipe_name"
+
                 android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+
+                />
 
         </LinearLayout>
 

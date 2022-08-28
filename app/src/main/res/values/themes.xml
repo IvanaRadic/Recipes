@@ -8,9 +8,9 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#7CE67235</item>
         <item name="colorSecondaryVariant">#7CE67235</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">#E67235</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#E67235</item>
         <!-- Customize your theme here. -->
 
         <item name="android:windowAnimationStyle">@null</item>
@@ -34,7 +34,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#7CE67235</item>
         <item name="colorSecondaryVariant">#7CE67235</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">#E67235</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

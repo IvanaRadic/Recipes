@@ -47,30 +47,34 @@ class RecipesActivity : AppCompatActivity() {
         userrecipeArrayList = arrayListOf<Recipe>()
 
         recipeAdapter = RecipeAdapter(userrecipeArrayList)
+
+
         recyclerView.adapter = recipeAdapter
 
         eventChangeListener()
 
         binding.txtWelcome.text = Firebase.auth.currentUser?.email.toString()
+        binding.txtSignedInAs.text
+        binding.txtMyRecipes.text
 
         binding.bottomNav.setOnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                  R.id.btn_home -> {
                     val intent = Intent(this, RecipesActivity::class.java)
                     startActivity(intent)
-                    overridePendingTransition(0, 0);
+                    overridePendingTransition(0, 0)
                     true
                 }
                 R.id.btn_search -> {
                     val intent = Intent(this, SearchRecipesActivity::class.java)
                     startActivity(intent)
-                    overridePendingTransition(0, 0);
+                    overridePendingTransition(0, 0)
                     true
                 }
                 R.id.btn_add -> {
                     val intent = Intent(this, AddRecipeActivity::class.java)
                     startActivity(intent)
-                    overridePendingTransition(0, 0);
+                    overridePendingTransition(0, 0)
                     true
                 }
 
@@ -112,6 +116,8 @@ class RecipesActivity : AppCompatActivity() {
                 intent.putExtra("Instruction", userrecipeArrayList[position].Instruction)
                 intent.putExtra("Ingredients", userrecipeArrayList[position].Ingredients)
                 intent.putExtra("User", userrecipeArrayList[position].User)
+                intent.putExtra("FileName", userrecipeArrayList[position].FileName)
+                intent.putExtra("Servings", userrecipeArrayList[position].Servings)
 
                 startActivity(intent)
             }
@@ -153,11 +159,15 @@ class RecipesActivity : AppCompatActivity() {
                             query.addOnCompleteListener{
                                 for(document in it.result){
                                     db.collection("recipes").document(document.id).delete()
+                                    val intent = Intent(this, RecipesActivity::class.java)
+                                    startActivity(intent)
+                                    overridePendingTransition(0, 0)
                               }
                             }
 
             Toast.makeText(this,"Deleted", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
+
         }
         addDialog.setNegativeButton("Cancel"){
                 dialog,_->
@@ -166,6 +176,7 @@ class RecipesActivity : AppCompatActivity() {
         }
         addDialog.create()
         addDialog.show()
+
     }
 
 }

@@ -16,6 +16,9 @@ import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 
 class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
@@ -48,6 +51,26 @@ class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.A
         val currentItem = recipeList[position]
         holder.recipeName.text = currentItem.Name
         //holder.recipeImage.setImageResource(images[position])
+
+        val fileName = "images/" + currentItem.FileName
+        val storageReference = FirebaseStorage.getInstance().reference.child(fileName)
+
+        storageReference.downloadUrl.addOnSuccessListener {
+            Glide.with(holder.itemView.context)
+                .load(it)
+                .fitCenter()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                .thumbnail(Glide.with(holder.itemView.context).load(R.drawable.ic_image_loading))
+                .error(R.drawable.no_image)
+                .into(holder.recipeImage);
+        }.addOnFailureListener {
+            Glide.with(holder.itemView.context)
+                .load(R.drawable.no_image)
+                .fitCenter()
+                .into(holder.recipeImage);
+        }
+
+
 
     }
 

@@ -141,6 +141,8 @@ class SearchRecipesActivity : AppCompatActivity() {
                 intent.putExtra("Instruction", tempArrayList[position].Instruction)
                 intent.putExtra("Ingredients", tempArrayList[position].Ingredients)
                 intent.putExtra("User", tempArrayList[position].User)
+                intent.putExtra("FileName", tempArrayList[position].FileName)
+                intent.putExtra("Servings", tempArrayList[position].Servings)
                 startActivity(intent)
             }
         })

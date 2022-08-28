@@ -25,6 +25,8 @@
         app:menu="@menu/bottom_menu"
         android:layout_weight="0"
         android:layout_gravity="center|bottom"
+        app:itemIconTint="#E67235"
+        app:itemTextColor="#E67235"
         />
 
 

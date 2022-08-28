@@ -179,6 +179,7 @@ class AddRecipeActivity : AppCompatActivity() {
         recipes["Ingredients"] = ingredientList
 
 
+
         db.collection("recipes").add(recipes).addOnCompleteListener {
             Toast.makeText(this, "You saved your data successfully!", Toast.LENGTH_LONG).show()
             finish()

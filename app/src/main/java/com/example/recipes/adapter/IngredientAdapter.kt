@@ -13,11 +13,13 @@ import com.example.recipes.dataclass.Ingredient
 class IngredientAdapter(val c: Context, val ingredientList:ArrayList<Ingredient>):RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>()
 {
     inner class IngredientViewHolder(val v: View): RecyclerView.ViewHolder(v){
-        val ingredientName = v.findViewById<TextView>(R.id.tv_ingredient)
         val amount = v.findViewById<TextView>(R.id.tv_amount)
-        val delete = v.findViewById<Button>(R.id.btnDelete)
         val unit = v.findViewById<TextView>(R.id.tv_unit)
+        val ingredientName = v.findViewById<TextView>(R.id.tv_ingredient)
+        val delete = v.findViewById<Button>(R.id.btnDelete)
+
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
 
@@ -30,7 +32,6 @@ class IngredientAdapter(val c: Context, val ingredientList:ArrayList<Ingredient>
         val newList = ingredientList[position]
         holder.amount.text = newList.amount.toString()
         holder.unit.text = newList.unit.toString()
-        holder.ingredientName.text = newList.ingredientName
         holder.ingredientName.text = newList.ingredientName
         holder.delete.setOnClickListener{
             ingredientList.removeAt(position)
