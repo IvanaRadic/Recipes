@@ -21,12 +21,20 @@
     //recipes
     <string name="go_insert">Add recipe</string>
     <string name="go_search">Search recipes</string>
+    <string name="signed_in_as">Signed in as: </string>
+    <string name="my_recipes">My recipes: </string>
+
+    //view recipe
+    <string name="ingredients">Ingredients: </string>
+    <string name="method">Method: </string>
+    <string name="recipe_by">Recipe by: </string>
+
 
     //add recipe
     <string name="add_txt">Add recipes</string>
     <string name="go_recipes">Search recipes</string>
     <string name="et_name">Name</string>
-    <string name="et_instructions">Instructions</string>
+    <string name="et_instructions">Method</string>
     <string name="num_servings">Servings</string>
     <string name="save_recipe">Save</string>
 
@@ -41,6 +49,9 @@
     <string name="txt_recipe_name">Recipe name </string>
     <string name="txt_recipe_description">Description </string>
     <string name="recipe_img">Recipe image </string>
+
+    //ingredient list
+    <string name="x">X</string>
     
     
     //drop down units
@@ -51,6 +62,9 @@
         <item>L</item>
         <item>X</item>
     </string-array>
+
+    //delete popup
+    <string name="re_name">Recipe Name: </string>
 
 
 </resources>

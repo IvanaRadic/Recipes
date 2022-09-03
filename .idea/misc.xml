@@ -8,7 +8,7 @@
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/drawable/input_bg.xml" value="0.188" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_add_recipe.xml" value="0.22" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_input_recipe.xml" value="0.24270833333333333" />
-        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_recipes.xml" value="0.33" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_search_recipes.xml" value="0.41105527638190953" />
@@ -18,6 +18,7 @@
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/delete_popup.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/dropdown_units.xml" value="0.33" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/fragment_recipe_view.xml" value="0.26927083333333335" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/image.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/ingredients_list.xml" value="0.25" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/list_recipes.xml" value="0.2546875" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/recipe_list.xml" value="0.33" />

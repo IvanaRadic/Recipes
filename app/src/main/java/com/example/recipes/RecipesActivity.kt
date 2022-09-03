@@ -77,7 +77,6 @@ class RecipesActivity : AppCompatActivity() {
                     overridePendingTransition(0, 0)
                     true
                 }
-
                 else ->
                     true
             }
@@ -142,15 +141,10 @@ class RecipesActivity : AppCompatActivity() {
 
 
     private fun deleteRecipe() {
-
-        //tu se jos koristi findviewbyid
         val inflater = LayoutInflater.from(this)
         val v = inflater.inflate(R.layout.delete_popup,null)
         val recipeName = v.findViewById<EditText>(R.id.recipeNameDelete)
-
-
         val addDialog = AlertDialog.Builder(this)
-
         addDialog.setView(v)
         addDialog.setPositiveButton("Delete"){
                 dialog,_->
@@ -167,7 +161,6 @@ class RecipesActivity : AppCompatActivity() {
 
             Toast.makeText(this,"Deleted", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-
         }
         addDialog.setNegativeButton("Cancel"){
                 dialog,_->

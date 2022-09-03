@@ -16,16 +16,16 @@
             android:id="@+id/txtSignedInAs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Signed in as: "
+            android:text="@string/signed_in_as"
             android:layout_marginTop="30dp"
-            android:textSize="18dp"/>
+            android:textSize="18sp"
+            android:layout_marginRight="3dp"/>
         <TextView
             android:id="@+id/txtWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
             android:layout_marginTop="30dp"
-            android:textSize="18dp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -37,9 +37,9 @@
             android:id="@+id/txtMyRecipes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My recipes: "
+            android:text="@string/my_recipes"
             android:layout_marginTop="30dp"
-            android:textSize="20dp"/>
+            android:textSize="20sp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnDel"

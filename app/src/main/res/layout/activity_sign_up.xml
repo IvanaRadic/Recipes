@@ -30,46 +30,27 @@
             android:layout_height="wrap_content"
             android:text="@string/login"
             android:textColor="#83FFFFFF"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="150dp"
             android:clickable="true"
-            />
+            android:focusable="true" />
         <TextView
             android:id="@+id/txtsignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/signup"
             android:textColor="@color/white"
-            android:textSize="25dp"
-
-
+            android:textSize="25sp"
             />
 
     </LinearLayout>
 
     <EditText
-        android:id="@+id/txtSignUpUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/signup_username"
-        android:inputType="textPassword"
-        android:background="@drawable/input_bg"
-        android:textColor="@color/white"
-        android:textColorHint="#8BFFFFFF"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        />
-
-
-    <EditText
         android:id="@+id/txtSignUpEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:ems="10"
         android:hint="@string/signup_email"
@@ -103,7 +84,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="@drawable/button_bg"
-
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:text="@string/signup"

@@ -39,7 +39,6 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun validateData(){
-        username = binding.txtSignUpUsername.text.toString().trim()
         email = binding.txtSignUpEmail.text.toString().trim()
         password = binding.txtSignUpPassword.text.toString().trim()
 

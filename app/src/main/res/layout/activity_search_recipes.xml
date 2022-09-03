@@ -8,8 +8,6 @@
     tools:context=".SearchRecipesActivity"
     android:theme="@style/ActionTheme.Recipes">
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recipes"
         android:layout_width="match_parent"

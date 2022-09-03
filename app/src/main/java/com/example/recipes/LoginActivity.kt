@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
@@ -52,8 +51,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun firebaseLogIn() {
-        //data validated begin login
-
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 val firebaseUser = firebaseAuth.currentUser
@@ -61,21 +58,17 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this,"Logged in as $email", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this,RecipesActivity::class.java))
                 finish()
-
             }
             .addOnFailureListener{ e->
                 Toast.makeText(this, "Login failed. ${e.message}", Toast.LENGTH_SHORT).show()
-
             }
     }
 
     private fun checkUser()  {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null){
-            //user is already logged in
             startActivity(Intent(this, RecipesActivity::class.java))
             finish()
-
         }
 
     }
