@@ -13,7 +13,7 @@
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_recipes.xml" value="0.33" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_search_recipes.xml" value="0.41105527638190953" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_sign_up.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_view_recipe.xml" value="0.2671875" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/activity_view_recipe.xml" value="0.22" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/add_item.xml" value="0.33" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/delete_popup.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/dropdown_units.xml" value="0.33" />
@@ -21,6 +21,7 @@
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/image.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/ingredients_list.xml" value="0.25" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/list_recipes.xml" value="0.2546875" />
+        <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/listview_row_item.xml" value="0.5" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/layout/recipe_list.xml" value="0.33" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/menu/bottom_menu.xml" value="0.34010416666666665" />
         <entry key="..\:/Users/35387/AndroidStudioProjects/Recipes/app/src/main/res/menu/home_menu.xml" value="0.25677083333333334" />

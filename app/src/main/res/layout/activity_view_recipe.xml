@@ -16,8 +16,9 @@
         android:layout_height="200dp"
         android:src="@drawable/whisk"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,9 +61,10 @@
         android:textStyle="italic"/>
 
     <ListView
+        android:id="@+id/listOfIngredients"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:id="@+id/listOfIngredients"/>
+        />
     <TextView
         android:id="@+id/txtInstruction"
         android:layout_width="match_parent"

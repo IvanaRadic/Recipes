@@ -52,6 +52,13 @@
 
     //ingredient list
     <string name="x">X</string>
+
+    //listview row item
+    <string name="amount">amount </string>
+    <string name="unit">unit </string>
+    <string name="name">name </string>
+
+
     
     
     //drop down units

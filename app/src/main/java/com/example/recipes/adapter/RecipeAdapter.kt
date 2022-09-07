@@ -23,11 +23,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
 
-
     private lateinit var mListener: onItemClickListener
-
-
-
     interface onItemClickListener{
         fun onItemClick(position: Int)
     }
@@ -35,7 +31,6 @@ class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.A
     fun setOnItemClickListener(listener: onItemClickListener){
         mListener = listener
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recipe_list, parent,false)
@@ -47,11 +42,8 @@ class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val currentItem = recipeList[position]
         holder.recipeName.text = currentItem.Name
-        //holder.recipeImage.setImageResource(images[position])
-
         val fileName = "images/" + currentItem.FileName
         val storageReference = FirebaseStorage.getInstance().reference.child(fileName)
 
@@ -60,7 +52,6 @@ class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.A
                 .load(it)
                 .fitCenter()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .thumbnail(Glide.with(holder.itemView.context).load(R.drawable.ic_image_loading))
                 .error(R.drawable.no_image)
                 .into(holder.recipeImage);
         }.addOnFailureListener {
@@ -69,23 +60,14 @@ class RecipeAdapter(private val recipeList : ArrayList<Recipe>) : RecyclerView.A
                 .fitCenter()
                 .into(holder.recipeImage);
         }
-
-
-
     }
 
-
-
     class MyViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-
         val recipeName : TextView = itemView.findViewById(R.id.tv_recipe_name)
         val recipeImage : ImageView = itemView.findViewById(R.id.recipeImage)
-
-
         init{
             itemView.setOnClickListener{
                 listener.onItemClick(adapterPosition)
-
             }
         }
     }

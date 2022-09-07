@@ -102,27 +102,21 @@ class AddRecipeActivity : AppCompatActivity() {
     }
 
     private fun addIngredient() {
-
-        //tu se jos koristi findviewbyid
         val inflater = LayoutInflater.from(this)
         val v = inflater.inflate(R.layout.add_item,null)
         val ingredientName = v.findViewById<EditText>(R.id.etIngredientName)
         val amount = v.findViewById<EditText>(R.id.etAmount)
-
         unit = v.findViewById(R.id.spUnit) as Spinner
         val pickUnit = resources.getStringArray(R.array.units)
         unit.adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, pickUnit)
         unit.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 Toast.makeText(this@AddRecipeActivity, "Please select unit", Toast.LENGTH_LONG).show()
             }
         }
-
         val addDialog = AlertDialog.Builder(this)
-
         addDialog.setView(v)
         addDialog.setPositiveButton("Ok"){
             dialog,_->
@@ -130,7 +124,6 @@ class AddRecipeActivity : AppCompatActivity() {
             val amount = amount.text.toString()
             var selectedUnit = unit.selectedItem.toString()
 
-            //tu mi naopako ulazi u listu
             ingredientList.add(Ingredient(amount,selectedUnit,ingredient))
             ingredientAdapter.notifyDataSetChanged()
             Toast.makeText(this,"Added", Toast.LENGTH_SHORT).show()
@@ -177,8 +170,6 @@ class AddRecipeActivity : AppCompatActivity() {
         recipes["FileName"] = fileName
         recipes["User"] = Firebase.auth.currentUser?.email.toString()
         recipes["Ingredients"] = ingredientList
-
-
 
         db.collection("recipes").add(recipes).addOnCompleteListener {
             Toast.makeText(this, "You saved your data successfully!", Toast.LENGTH_LONG).show()

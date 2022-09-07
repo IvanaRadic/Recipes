@@ -51,7 +51,7 @@ class RecipesActivity : AppCompatActivity() {
 
         recyclerView.adapter = recipeAdapter
 
-        eventChangeListener()
+        displayRecipe()
 
         binding.txtWelcome.text = Firebase.auth.currentUser?.email.toString()
         binding.txtSignedInAs.text
@@ -83,7 +83,7 @@ class RecipesActivity : AppCompatActivity() {
     }
     }
 
-    private fun eventChangeListener(){
+    private fun displayRecipe(){
 
         db = FirebaseFirestore.getInstance()
         db.collection("recipes").whereEqualTo("User", Firebase.auth.currentUser?.email.toString()).

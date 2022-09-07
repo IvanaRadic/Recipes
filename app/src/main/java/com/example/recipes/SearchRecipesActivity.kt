@@ -43,7 +43,7 @@ class SearchRecipesActivity : AppCompatActivity() {
         recipeAdapter = RecipeAdapter(tempArrayList)
         recyclerView.adapter = recipeAdapter
 
-        eventChangeListener()
+        displayAllRecipes()
 
         binding.bottomNav.setOnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
@@ -72,29 +72,22 @@ class SearchRecipesActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
         menuInflater.inflate(R.menu.menu_item,menu)
         val item = menu?.findItem(R.id.search_action)
         val searchView = item?.actionView as SearchView
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(newText: String?): Boolean {
-
                     recyclerView.adapter!!.notifyDataSetChanged()
-
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 tempArrayList.clear()
-
                 val searchText = newText!!.lowercase(Locale.getDefault())
                 if(searchText.isNotEmpty()){
                     recipeArrayList.forEach{
                         if(it.Name!!.lowercase(Locale.getDefault()).contains(searchText)){
-
                             tempArrayList.add(it)
-
                         }
                     }
                     recyclerView.adapter!!.notifyDataSetChanged()
@@ -104,16 +97,13 @@ class SearchRecipesActivity : AppCompatActivity() {
                     tempArrayList.addAll(recipeArrayList)
                     recyclerView.adapter!!.notifyDataSetChanged()
                 }
-
                 return false
             }
-
         })
-
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun eventChangeListener(){
+    private fun displayAllRecipes(){
 
         db = FirebaseFirestore.getInstance()
         db.collection("recipes").
